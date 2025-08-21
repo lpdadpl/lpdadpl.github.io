@@ -1,11 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio | Lorem Ipsum</title>
+    <meta name="description" content="Portfolio personal con proyectos, habilidades y contacto.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    Esto es una pruebita
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">Lorem<span>Ipsum</span></a>
+            <nav class="site-nav" id="siteNav" aria-label="Principal">
+                <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryMenu" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul id="primaryMenu">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container grid-2">
+                <div class="hero-text">
+                    <h1>Hola, soy Lorem Ipsum</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. Curabitur vehicula, lorem vitae tincidunt ultrices, ipsum lectus faucibus lectus, id placerat nisl nibh id ipsum.</p>
+                    <div class="cta-group">
+                        <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+                        <a href="#contact" class="btn btn-ghost">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <div class="avatar" aria-hidden="true">LI</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre mí</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultricies, velit nec cursus tempor, lorem mi luctus orci, in dictum quam risus at mi. Morbi vel cursus lorem, sed convallis lorem. Integer id neque in ex imperdiet viverra. Etiam sed dignissim magna. Suspendisse vitae fringilla justo, non maximus risus.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Proyectos</h2>
+                <div class="grid-3 cards">
+                    <article class="card">
+                        <div class="card-media" aria-hidden="true"></div>
+                        <div class="card-body">
+                            <h3>Proyecto Uno</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed ligula at sapien efficitur scelerisque.</p>
+                            <a href="#" class="card-link">Ver más</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media" aria-hidden="true"></div>
+                        <div class="card-body">
+                            <h3>Proyecto Dos</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed ligula at sapien efficitur scelerisque.</p>
+                            <a href="#" class="card-link">Ver más</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media" aria-hidden="true"></div>
+                        <div class="card-body">
+                            <h3>Proyecto Tres</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed ligula at sapien efficitur scelerisque.</p>
+                            <a href="#" class="card-link">Ver más</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Habilidades</h2>
+                <ul class="skills">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>UI/UX</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <label for="name">Nombre</label>
+                        <input id="name" name="name" type="text" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <p id="formStatus" role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Lorem Ipsum. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
