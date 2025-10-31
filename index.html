@@ -88,6 +88,26 @@
                 #projects .container{ text-align: left; }
                 #projects .project-card .centered{ margin: 0 auto; }
             }
+
+            /* avatar */
+            .avatar {
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.04);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                color: var(--text);
+                overflow: hidden;
+            }
+            .avatar-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
         </style>
     </head>
     <body>
@@ -128,7 +148,7 @@
                     <div class="hero-text">
                         <h1>
                             Hola, soy Alberto de Pablo López
-                            <img src="/pfp.jpg" width="35" alt="wave" style="vertical-align:middle;margin-left:0.5rem" />
+                            <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" alt="wave" style="vertical-align:middle;margin-left:0.5rem" />
                         </h1>
                         <p>
                             Apasionado profesional con experiencia en atención
@@ -161,7 +181,9 @@
                         </div>
                     </div>
                     <div class="hero-media">
-                        <div class="avatar" aria-hidden="true">AP</div>
+                        <div class="avatar" aria-hidden="true">
+                            <img src="/@pfp.jpg" alt="Alberto de Pablo" class="avatar-img" />
+                        </div>
                     </div>
                 </div>
             </section>
