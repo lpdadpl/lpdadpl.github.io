@@ -16,6 +16,13 @@
         />
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            /* Estilos mínimos para los iconos y la cuadrícula del stack */
+            .section-icon { font-size: 1.2rem; margin-right: 0.5rem; vertical-align:middle; }
+            .tech-grid { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; align-items:center; }
+            .tech-grid a img { height:48px; width:auto; display:block; }
+            .section-title { display:flex; align-items:center; gap:0.5rem; justify-content:center; }
+        </style>
     </head>
     <body>
         <header class="site-header">
@@ -43,10 +50,20 @@
         </header>
 
         <main>
+            <!-- Banner agregado -->
+            <section class="banner-section" aria-hidden="true">
+                <div class="container">
+                    <img src="/Header.png" alt="Banner" style="width:100%;height:auto;display:block;margin:0 auto 1rem" />
+                </div>
+            </section>
+
             <section id="hero" class="hero">
                 <div class="container grid-2">
                     <div class="hero-text">
-                        <h1>Hola, soy Alberto de Pablo López</h1>
+                        <h1>
+                            Hola, soy Alberto de Pablo López
+                            <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" alt="wave" style="vertical-align:middle;margin-left:0.5rem" />
+                        </h1>
                         <p>
                             Apasionado profesional con experiencia en atención
                             al cliente y gestión de proyectos. Mi adaptabilidad,
@@ -57,6 +74,17 @@
                             práctica, enfocada en resultados y con un enfoque
                             metódico en cada proyecto.
                         </p>
+
+                        <!-- Social / enlaces rápidos -->
+                        <p style="margin:0.5rem 0">
+                            <a href="https://www.linkedin.com/in/albertodpablo/" target="_blank" aria-label="LinkedIn">
+                                <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" alt="LinkedIn" style="height:32px" />
+                            </a>
+                            <a href="https://github.com/lpdadpl" target="_blank" aria-label="GitHub" style="margin-left:0.5rem">
+                                <img src="https://skillicons.dev/icons?i=github&theme=dark" alt="GitHub" style="height:32px" />
+                            </a>
+                        </p>
+
                         <div class="cta-group">
                             <a href="#projects" class="btn btn-primary"
                                 >Ver proyectos</a
@@ -74,7 +102,7 @@
 
             <section id="education" class="section section-alt">
                 <div class="container">
-                    <h2 class="section-title">Educación</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🎓</span> Educación</h2>
                     <ul>
                         <li>
                             <strong>GFPS DAW Dual</strong> - IES Pio Baroja
@@ -90,7 +118,7 @@
 
             <section id="about" class="section">
                 <div class="container">
-                    <h2 class="section-title">Sobre mí</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🧑‍💻</span> Sobre mí</h2>
                     <p>
                         Profesional con formación en desarrollo web y dietética,
                         capacitado para diseñar, desarrollar y mantener
@@ -114,6 +142,7 @@
                         <li>Autogestión</li>
                         <li>Resiliencia</li>
                     </ul>
+
                     <h3>Skills adicionales</h3>
                     <ul class="skills">
                         <li>GFPS DAW Dual- IES Pio Baroja 2023 - 2025</li>
@@ -141,7 +170,7 @@
             <!-- Cambia el nombre de la sección y tarjetas horizontales -->
             <section id="experience-cards" class="section section-alt">
                 <div class="container">
-                    <h2 class="section-title">Experiencia</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>💼</span> Experiencia</h2>
                     <div class="cards-horizontal">
                         <article class="card-horizontal">
                             <div class="card-body-horizontal">
@@ -192,10 +221,10 @@
                 </div>
             </section>
 
-            <!-- Nueva sección de proyectos -->
+            <!-- Nueva sección de proyectos ampliada -->
             <section id="projects" class="section">
                 <div class="container" style="text-align: center">
-                    <h2 class="section-title">Proyectos</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>📁</span> Proyectos</h2>
                     <div
                         style="font-size: 5rem; margin-bottom: 1rem"
                         aria-hidden="true"
@@ -203,13 +232,76 @@
                         🚧
                     </div>
                     <p style="font-size: 1.2rem">Estamos trabajando en ello</p>
+
+                    <!-- Proyecto destacado -->
+                    <div style="margin-top:1.5rem">
+                        <h3>ArchiveSphere</h3>
+                        <p>
+                            Web para gestión de archivos y automatización de
+                            backups. Tecnologías principales: <strong>Laravel</strong>, <strong>Vue.js</strong> y <strong>TypeScript</strong>.
+                        </p>
+                        <p>
+                            <a href="https://github.com/lpdadpl/Archivesphere.git" target="_blank">Ver en GitHub</a>
+                        </p>
+                        <!-- Estadísticas GitHub -->
+                        <div style="margin-top:1rem">
+                            <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lpdadpl&show_icons=true&theme=dark&locale=en&layout=compact&langs_count=10" alt="Top languages" style="max-width:340px;width:100%" />
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="skills" class="section">
                 <div class="container">
-                    <h2 class="section-title">Habilidades Técnicas</h2>
-                    <ul class="skills">
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🛠️</span> Habilidades Técnicas</h2>
+
+                    <!-- Iconos de skills: cuadrícula con enlaces -->
+                    <div class="tech-grid" aria-hidden="false" aria-label="Tecnologías">
+                        <a href="#" title="HTML">
+                            <img src="https://skillicons.dev/icons?i=html&theme=light" alt="HTML" />
+                        </a>
+                        <a href="#" title="CSS">
+                            <img src="https://skillicons.dev/icons?i=css&theme=light" alt="CSS" />
+                        </a>
+                        <a href="#" title="TypeScript">
+                            <img src="https://skillicons.dev/icons?i=ts&theme=light" alt="TypeScript" />
+                        </a>
+                        <a href="#" title="Vue.js">
+                            <img src="https://skillicons.dev/icons?i=vue&theme=light" alt="Vue" />
+                        </a>
+                        <a href="#" title="Angular">
+                            <img src="https://skillicons.dev/icons?i=angular&theme=light" alt="Angular" />
+                        </a>
+                        <a href="#" title="PHP">
+                            <img src="https://skillicons.dev/icons?i=php&theme=light" alt="PHP" />
+                        </a>
+                        <a href="#" title="Laravel">
+                            <img src="https://skillicons.dev/icons?i=laravel&theme=light" alt="Laravel" />
+                        </a>
+                        <a href="#" title="Node.js">
+                            <img src="https://skillicons.dev/icons?i=nodejs&theme=light" alt="Node.js" />
+                        </a>
+                        <a href="#" title="MySQL">
+                            <img src="https://skillicons.dev/icons?i=mysql&theme=light" alt="MySQL" />
+                        </a>
+                        <a href="#" title="Postgres">
+                            <img src="https://skillicons.dev/icons?i=postgres&theme=light" alt="Postgres" />
+                        </a>
+                        <a href="#" title="Docker">
+                            <img src="https://skillicons.dev/icons?i=docker&theme=light" alt="Docker" />
+                        </a>
+                        <a href="#" title="AWS">
+                            <img src="https://skillicons.dev/icons?i=aws&theme=light" alt="AWS" />
+                        </a>
+                        <a href="#" title="Git">
+                            <img src="https://skillicons.dev/icons?i=git&theme=light" alt="Git" />
+                        </a>
+                        <a href="#" title="GitHub">
+                            <img src="https://skillicons.dev/icons?i=github&theme=light" alt="GitHub" />
+                        </a>
+                    </div>
+
+                    <ul class="skills" style="margin-top:1rem">
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>Js/Ts</li>
@@ -217,12 +309,15 @@
                         <li>Laravel</li>
                         <li>AWS</li>
                     </ul>
+
+                    <h3>Aprendizaje</h3>
+                    <p>Actualmente profundizando en: <strong>AWS</strong>, <strong>Cloud-native Software Engineering</strong> y <strong>Angular</strong>.</p>
                 </div>
             </section>
 
             <section id="experience" class="section">
                 <div class="container">
-                    <h2 class="section-title">Experiencia profesional</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🧾</span> Experiencia profesional</h2>
                     <ul>
                         <li>
                             <strong>Becario desarrollo web</strong> - JHK
@@ -246,7 +341,7 @@
 
             <section id="contact" class="section section-alt">
                 <div class="container">
-                    <h2 class="section-title">Contacto</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>✉️</span> Contacto</h2>
                     <p>
                         Getafe, España · 684108419 ·
                         <a href="mailto:albertodepablolopez@gmail.com"
@@ -307,7 +402,7 @@
         <footer class="site-footer">
             <div class="container">
                 <p>
-                    © <span id="year"></span> Lorem Ipsum. Todos los derechos
+                    © <span id="year"></span> Alberto de Pablo. Todos los derechos
                     reservados.
                 </p>
             </div>
