@@ -17,11 +17,77 @@
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <style>
-            /* Estilos mínimos para los iconos y la cuadrícula del stack */
-            .section-icon { font-size: 1.2rem; margin-right: 0.5rem; vertical-align:middle; }
+            /* Fondo uniforme para todo el sitio */
+            :root {
+                --bg: #0b1220; /* color de fondo principal (ajustable) */
+                --text: #e6eef8;
+                --muted: #9aa7bf;
+                --accent: #7cc3ff;
+            }
+
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: var(--bg);
+                background-image: none !important;
+                color: var(--text);
+                font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            /* Forzar transparencia / ausencia de cortes en secciones */
+            .section,
+            .section-alt,
+            .site-header,
+            .site-footer,
+            .banner-section,
+            .container {
+                background: transparent !important;
+            }
+
+            /* Estilos generales y accesibilidad */
+            a { color: var(--accent); text-decoration: underline; }
+            a:focus, button:focus { outline: 3px solid rgba(124,195,255,0.25); outline-offset: 2px; }
+
+            /* Iconos y cuadrícula del stack */
+            .section-icon { font-size: 1.2rem; margin-right: 0.5rem; vertical-align:middle; color:var(--accent); }
             .tech-grid { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; align-items:center; }
-            .tech-grid a img { height:48px; width:auto; display:block; }
-            .section-title { display:flex; align-items:center; gap:0.5rem; justify-content:center; }
+            .tech-grid a img { height:48px; width:auto; display:block; filter: none; }
+            .section-title { display:flex; align-items:center; gap:0.5rem; justify-content:center; color:var(--text); }
+
+            /* Centrado y ajuste para sección Proyectos */
+            #projects .container{
+                max-width: 900px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem;
+                text-align: center;
+            }
+            #projects .hero-emoji{ font-size: 5rem; margin-bottom: 0.5rem; }
+            #projects .lead{ font-size: 1.15rem; margin: 0; color:var(--muted); }
+            #projects .project-card{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: center;
+                color:var(--text);
+            }
+            #projects .project-card h3{ margin: 0.25rem 0; }
+            #projects .project-stats img{ max-width: 340px; width:100%; height:auto; display:block; margin: 0 auto; }
+            .centered { margin: 0 auto; }
+            @media (min-width: 720px){
+                #projects .project-card{ align-items: flex-start; text-align: left; }
+                #projects .container{ text-align: left; }
+                #projects .project-card .centered{ margin: 0 auto; }
+            }
         </style>
     </head>
     <body>
@@ -221,31 +287,28 @@
                 </div>
             </section>
 
-            <!-- Nueva sección de proyectos ampliada -->
+            <!-- Nueva sección de proyectos ampliada (centrada) -->
             <section id="projects" class="section">
-                <div class="container" style="text-align: center">
+                <div class="container">
                     <h2 class="section-title"><span class="section-icon" aria-hidden>📁</span> Proyectos</h2>
-                    <div
-                        style="font-size: 5rem; margin-bottom: 1rem"
-                        aria-hidden="true"
-                    >
-                        🚧
-                    </div>
-                    <p style="font-size: 1.2rem">Estamos trabajando en ello</p>
 
-                    <!-- Proyecto destacado -->
-                    <div style="margin-top:1.5rem">
-                        <h3>ArchiveSphere</h3>
-                        <p>
-                            Web para gestión de archivos y automatización de
-                            backups. Tecnologías principales: <strong>Laravel</strong>, <strong>Vue.js</strong> y <strong>TypeScript</strong>.
-                        </p>
-                        <p>
-                            <a href="https://github.com/lpdadpl/Archivesphere.git" target="_blank">Ver en GitHub</a>
-                        </p>
-                        <!-- Estadísticas GitHub -->
-                        <div style="margin-top:1rem">
-                            <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lpdadpl&show_icons=true&theme=dark&locale=en&layout=compact&langs_count=10" alt="Top languages" style="max-width:340px;width:100%" />
+                    <div class="projects-inner" style="width:100%">
+                        <div class="hero-emoji" aria-hidden="true">🚧</div>
+                        <p class="lead">Estamos trabajando en ello</p>
+
+                        <!-- Proyecto destacado -->
+                        <div class="project-card" role="region" aria-labelledby="archivesphere-title">
+                            <h3 id="archivesphere-title">ArchiveSphere</h3>
+                            <p>
+                                Web para gestión de archivos y automatización de
+                                backups. Tecnologías principales: <strong>Laravel</strong>, <strong>Vue.js</strong> y <strong>TypeScript</strong>.
+                            </p>
+                            <p class="centered"><a href="https://github.com/lpdadpl/Archivesphere.git" target="_blank" rel="noopener">Ver en GitHub</a></p>
+
+                            <!-- Estadísticas GitHub -->
+                            <div class="project-stats centered" aria-hidden="true">
+                                <img src="https://github-readme-stats.vercel.app/api/top-langs?username=lpdadpl&show_icons=true&theme=dark&locale=en&layout=compact&langs_count=10" alt="Top languages" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -300,15 +363,6 @@
                             <img src="https://skillicons.dev/icons?i=github&theme=light" alt="GitHub" />
                         </a>
                     </div>
-
-                    <ul class="skills" style="margin-top:1rem">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Js/Ts</li>
-                        <li>Vue</li>
-                        <li>Laravel</li>
-                        <li>AWS</li>
-                    </ul>
 
                     <h3>Aprendizaje</h3>
                     <p>Actualmente profundizando en: <strong>AWS</strong>, <strong>Cloud-native Software Engineering</strong> y <strong>Angular</strong>.</p>
