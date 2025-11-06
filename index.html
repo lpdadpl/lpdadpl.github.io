@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio | Lorem Ipsum</title>
+        <title>Portfolio - Resume | Alberto de Pablo</title>
         <meta
             name="description"
             content="Portfolio personal con proyectos, habilidades y contacto."
@@ -16,6 +16,114 @@
         />
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <style>
+            /* Fondo uniforme para todo el sitio */
+             :root {
+                 --bg: #0b1220; /* color de fondo principal (ajustable) */
+                 --text: #e6eef8;
+                 --muted: #9aa7bf;
+                 --accent: #7cc3ff;
+             }
+ 
+             html, body {
+                 height: 100%;
+                 margin: 0;
+                 padding: 0;
+                 background-color: var(--bg);
+                 background-image: none !important;
+                 color: var(--text);
+                 font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+                 -webkit-font-smoothing: antialiased;
+                 -moz-osx-font-smoothing: grayscale;
+                 -webkit-text-size-adjust: 100%;
+             }
+ 
+             /* Forzar transparencia / ausencia de cortes en secciones */
+             .section,
+             .section-alt,
+             .site-header,
+             .site-footer,
+             .banner-section,
+             .container {
+                background: transparent !important;
+             }
+
+            /* Ajustes para que el diseño use todo el ancho en escritorio */
+            .container {
+                width: 100%;
+                max-width: none !important;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                box-sizing: border-box;
+                margin: 0 auto;
+            }
+            @media (min-width: 1200px) {
+                /* en pantallas grandes ampliar el padding lateral para aire */
+                .container { padding-left: 3rem; padding-right: 3rem; }
+            }
+ 
+             /* Estilos generales y accesibilidad */
+             a { color: var(--accent); text-decoration: underline; }
+             a:focus, button:focus { outline: 3px solid rgba(124,195,255,0.25); outline-offset: 2px; }
+ 
+             /* Iconos y cuadrícula del stack */
+             .section-icon { font-size: 1.2rem; margin-right: 0.5rem; vertical-align:middle; color:var(--accent); }
+             .tech-grid { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; align-items:center; }
+             .tech-grid a img { height:48px; width:auto; display:block; filter: none; }
+             .section-title { display:flex; align-items:center; gap:0.5rem; justify-content:center; color:var(--text); }
+ 
+            /* Centrado y ajuste para sección Proyectos (aún usa todo el ancho) */
+             #projects .container{
+                 width: 100%;
+                 max-width: none;
+                 margin: 0 auto;
+                 display: flex;
+                 flex-direction: column;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 1rem;
+                 padding: 1rem;
+                 text-align: center;
+             }
+             #projects .hero-emoji{ font-size: 5rem; margin-bottom: 0.5rem; }
+             #projects .lead{ font-size: 1.15rem; margin: 0; color:var(--muted); }
+             #projects .project-card{
+                 width: 100%;
+                 display: flex;
+                 flex-direction: column;
+                 gap: 0.75rem;
+                 align-items: center;
+                 color:var(--text);
+             }
+             #projects .project-card h3{ margin: 0.25rem 0; }
+             #projects .project-stats img{ max-width: 340px; width:100%; height:auto; display:block; margin: 0 auto; }
+             .centered { margin: 0 auto; }
+             @media (min-width: 720px){
+                 #projects .project-card{ align-items: flex-start; text-align: left; }
+                 #projects .container{ text-align: left; }
+                 #projects .project-card .centered{ margin: 0 auto; }
+             }
+ 
+             /* avatar */
+             .avatar {
+                 width: 96px;
+                 height: 96px;
+                 border-radius: 50%;
+                 background: rgba(255,255,255,0.04);
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 font-weight: 700;
+                 color: var(--text);
+                 overflow: hidden;
+             }
+             .avatar-img {
+                 width: 100%;
+                 height: 100%;
+                 object-fit: cover;
+                 display: block;
+             }
+         </style>
     </head>
     <body>
         <header class="site-header">
@@ -43,105 +151,75 @@
         </header>
 
         <main>
+            <!-- Banner agregado -->
+            <section class="banner-section" aria-hidden="true">
+                <div class="container">
+                    <img src="/Header.png" alt="Banner" style="width:100%;height:auto;display:block;margin:0 auto 1rem" />
+                </div>
+            </section>
+
             <section id="hero" class="hero">
                 <div class="container grid-2">
                     <div class="hero-text">
-                        <h1>Hola, soy Alberto de Pablo López</h1>
+                        <h1>
+                            Hola, soy Alberto de Pablo López
+                            <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" alt="wave" style="vertical-align:middle;margin-left:0.5rem" />
+                        </h1>
                         <p>
-                            Apasionado profesional con experiencia en atención
-                            al cliente y gestión de proyectos. Mi adaptabilidad,
-                            capacidad para trabajar en equipo y habilidades
-                            interpersonales me permiten abordar desafíos de
-                            manera eficiente. Aspiro a integrarme en un entorno
-                            colaborativo donde pueda aportar una visión
-                            práctica, enfocada en resultados y con un enfoque
-                            metódico en cada proyecto.
+                            Apasionado profesional con formación en desarrollo web y dietética.
+                            Tengo experiencia en atención al cliente y gestión de proyectos,
+                            y destaque por mi adaptabilidad, trabajo en equipo y rapidez de aprendizaje.
+                            Domino tecnologías web (Laravel, Vue.js, TypeScript) y bases de datos,
+                            y puedo diseñar y mantener aplicaciones que priorizan usabilidad y seguridad.
+                            Busco integrarme en entornos colaborativos donde aportar una visión práctica
+                            y orientada a resultados.
                         </p>
-                        <div class="cta-group">
-                            <a href="#projects" class="btn btn-primary"
-                                >Ver proyectos</a
-                            >
-                            <a href="#contact" class="btn btn-ghost"
-                                >Contactar</a
-                            >
+                            <!-- Social / enlaces rápidos -->
+                        <p style="margin-top:1rem; display:flex; align-items:center; gap:0.5rem;">
+                            <a href="https://www.linkedin.com/in/albertodpablo/" target="_blank" aria-label="LinkedIn">
+                                <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" alt="LinkedIn" style="height:32px; vertical-align:middle;" />
+                            </a>
+                            <a href="https://github.com/lpdadpl" target="_blank" aria-label="GitHub">
+                                <img src="https://skillicons.dev/icons?i=github&theme=dark" alt="GitHub" style="height:32px; vertical-align:middle;" />
+                            </a>
+                        </p>
+
+                    </div>
+                    <!-- <div class="hero-media">
+                        <div class="avatar" aria-hidden="true">
+                            <img src="/pfp.jpg" alt="Alberto de Pablo" class="avatar-img" />
                         </div>
-                    </div>
-                    <div class="hero-media">
-                        <div class="avatar" aria-hidden="true">AP</div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
             <section id="education" class="section section-alt">
                 <div class="container">
-                    <h2 class="section-title">Educación</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🎓</span> Educación</h2>
+
+                    <p style="margin-bottom:0.6rem; color:var(--muted)">
+                        Formación técnica y práctica orientada al desarrollo de aplicaciones web y al trabajo en entornos profesionales.
+                    </p>
+
                     <ul>
                         <li>
-                            <strong>GFPS DAW Dual</strong> - IES Pio Baroja
-                            (2023 - 2025)
+                            <strong>GFPS DAW Dual</strong> - IES Pio Baroja (2023 - 2025)<br />
+                            Programa en modalidad dual combinando formación en el centro y prácticas en empresa. Módulos destacados:
+                            Desarrollo web (HTML, CSS, JavaScript/TypeScript), programación en servidor (PHP, Laravel), bases de datos (MySQL, PostgreSQL), sistemas y DevOps básicos (Docker, despliegue), y buenas prácticas de seguridad y accesibilidad.
                         </li>
-                        <li>
-                            <strong>GFPS Dietética</strong> - Escuela
-                            Profesional Javeriana (2023)
+                        <li style="margin-top:.5rem">
+                            <strong>GFPS Dietética</strong> - Escuela Profesional Javeriana (2023)<br />
+                            Formación complementaria en nutrición y control de calidad alimentaria; aporta enfoque analítico y gestión documental útil en proyectos de software relacionados con datos de salud y procesos.
                         </li>
                     </ul>
-                </div>
-            </section>
 
-            <section id="about" class="section">
-                <div class="container">
-                    <h2 class="section-title">Sobre mí</h2>
-                    <p>
-                        Profesional con formación en desarrollo web y dietética,
-                        capacitado para diseñar, desarrollar y mantener
-                        aplicaciones web dinámicas, asegurando funcionalidad,
-                        usabilidad y seguridad. Dominio de lenguajes de
-                        programación, bases de datos y tecnologías web.
-                        Formación integral en nutrición y dietética, con
-                        capacidad para diseñar, gestionar y supervisar planes
-                        alimentarios personalizados, promoviendo hábitos
-                        saludables y adaptados a las necesidades específicas.
-                    </p>
-                    <ul class="skills">
-                        <li>Comunicación efectiva</li>
-                        <li>Pensamiento crítico</li>
-                        <li>Creatividad</li>
-                        <li>Orientación a resultados</li>
-                        <li>Resolución de problemas</li>
-                        <li>Rápida capacidad de aprendizaje</li>
-                        <li>Trabajo en equipo</li>
-                        <li>Adaptabilidad</li>
-                        <li>Autogestión</li>
-                        <li>Resiliencia</li>
-                    </ul>
-                    <h3>Skills adicionales</h3>
-                    <ul class="skills">
-                        <li>GFPS DAW Dual- IES Pio Baroja 2023 - 2025</li>
-                        <li>
-                            GFPS Dietética - Escuela Profesional Javeriana 2023
-                        </li>
-                        <li>
-                            Capacitado para diseñar, desarrollar y mantener
-                            aplicaciones web dinámicas
-                        </li>
-                        <li>
-                            Dominio de lenguajes de programación, bases de datos
-                            y tecnologías web
-                        </li>
-                        <li>Formación integral en nutrición y dietética</li>
-                        <li>
-                            Conocimientos en evaluación nutricional, elaboración
-                            de dietas, control de la calidad alimentaria y
-                            educación nutricional
-                        </li>
-                    </ul>
                 </div>
             </section>
 
             <!-- Cambia el nombre de la sección y tarjetas horizontales -->
             <section id="experience-cards" class="section section-alt">
                 <div class="container">
-                    <h2 class="section-title">Experiencia</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>💼</span> Experiencia</h2>
                     <div class="cards-horizontal">
                         <article class="card-horizontal">
                             <div class="card-body-horizontal">
@@ -192,37 +270,90 @@
                 </div>
             </section>
 
-            <!-- Nueva sección de proyectos -->
+            <!-- Nueva sección de proyectos ampliada (centrada) -->
             <section id="projects" class="section">
-                <div class="container" style="text-align: center">
-                    <h2 class="section-title">Proyectos</h2>
-                    <div
-                        style="font-size: 5rem; margin-bottom: 1rem"
-                        aria-hidden="true"
-                    >
-                        🚧
+                <div class="container">
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>📁</span> Proyectos</h2>
+
+                    <div class="projects-inner" style="width:100%">
+                        <!-- <div class="hero-emoji" aria-hidden="true">🚧</div>
+                        <p class="lead">Estamos trabajando en ello</p> -->
+
+                        <!-- Proyecto destacado -->
+                        <div class="project-card" role="region" aria-labelledby="archivesphere-title">
+                            <h3 id="archivesphere-title">
+                                <a href="https://github.com/lpdadpl/Archivesphere.git" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">
+                                    ArchiveSphere
+                                </a>
+                           </h3>
+                             <p>
+                                 Web para gestión de archivos y automatización de
+                                 backups. Tecnologías principales: <strong>Laravel</strong>, <strong>Vue.js</strong> y <strong>TypeScript</strong>.
+                             </p>
+                            </div>
+                        </div>
                     </div>
-                    <p style="font-size: 1.2rem">Estamos trabajando en ello</p>
                 </div>
             </section>
 
             <section id="skills" class="section">
                 <div class="container">
-                    <h2 class="section-title">Habilidades Técnicas</h2>
-                    <ul class="skills">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Js/Ts</li>
-                        <li>Vue</li>
-                        <li>Laravel</li>
-                        <li>AWS</li>
-                    </ul>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🛠️</span> Habilidades Técnicas</h2>
+
+                    <!-- Iconos de skills: cuadrícula con enlaces -->
+                    <div class="tech-grid" aria-hidden="false" aria-label="Tecnologías">
+                        <a href="#" title="HTML">
+                            <img src="https://skillicons.dev/icons?i=html&theme=light" alt="HTML" />
+                        </a>
+                        <a href="#" title="CSS">
+                            <img src="https://skillicons.dev/icons?i=css&theme=light" alt="CSS" />
+                        </a>
+                        <a href="#" title="TypeScript">
+                            <img src="https://skillicons.dev/icons?i=ts&theme=light" alt="TypeScript" />
+                        </a>
+                        <a href="#" title="Vue.js">
+                            <img src="https://skillicons.dev/icons?i=vue&theme=light" alt="Vue" />
+                        </a>
+                        <a href="#" title="Angular">
+                            <img src="https://skillicons.dev/icons?i=angular&theme=light" alt="Angular" />
+                        </a>
+                        <a href="#" title="PHP">
+                            <img src="https://skillicons.dev/icons?i=php&theme=light" alt="PHP" />
+                        </a>
+                        <a href="#" title="Laravel">
+                            <img src="https://skillicons.dev/icons?i=laravel&theme=light" alt="Laravel" />
+                        </a>
+                        <a href="#" title="Node.js">
+                            <img src="https://skillicons.dev/icons?i=nodejs&theme=light" alt="Node.js" />
+                        </a>
+                        <a href="#" title="MySQL">
+                            <img src="https://skillicons.dev/icons?i=mysql&theme=light" alt="MySQL" />
+                        </a>
+                        <a href="#" title="Postgres">
+                            <img src="https://skillicons.dev/icons?i=postgres&theme=light" alt="Postgres" />
+                        </a>
+                        <a href="#" title="Docker">
+                            <img src="https://skillicons.dev/icons?i=docker&theme=light" alt="Docker" />
+                        </a>
+                        <a href="#" title="AWS">
+                            <img src="https://skillicons.dev/icons?i=aws&theme=light" alt="AWS" />
+                        </a>
+                        <a href="#" title="Git">
+                            <img src="https://skillicons.dev/icons?i=git&theme=light" alt="Git" />
+                        </a>
+                        <a href="#" title="GitHub">
+                            <img src="https://skillicons.dev/icons?i=github&theme=light" alt="GitHub" />
+                        </a>
+                    </div>
+
+                    <h3>Aprendizaje</h3>
+                    <p>Actualmente profundizando en: <strong>AWS</strong>, <strong>Cloud-native Software Engineering</strong> y <strong>Angular</strong>.</p>
                 </div>
             </section>
 
-            <section id="experience" class="section">
+            <!-- <section id="experience" class="section">
                 <div class="container">
-                    <h2 class="section-title">Experiencia profesional</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>🧾</span> Experiencia profesional</h2>
                     <ul>
                         <li>
                             <strong>Becario desarrollo web</strong> - JHK
@@ -242,11 +373,11 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
 
-            <section id="contact" class="section section-alt">
+            <!-- <section id="contact" class="section section-alt">
                 <div class="container">
-                    <h2 class="section-title">Contacto</h2>
+                    <h2 class="section-title"><span class="section-icon" aria-hidden>✉️</span> Contacto</h2>
                     <p>
                         Getafe, España · 684108419 ·
                         <a href="mailto:albertodepablolopez@gmail.com"
@@ -301,13 +432,13 @@
                         </div>
                     </form>
                 </div>
-            </section>
+            </section> -->
         </main>
 
         <footer class="site-footer">
             <div class="container">
                 <p>
-                    © <span id="year"></span> Lorem Ipsum. Todos los derechos
+                    © <span id="year"></span> Alberto de Pablo. Todos los derechos
                     reservados.
                 </p>
             </div>
