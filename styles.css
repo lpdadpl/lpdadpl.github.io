@@ -318,10 +318,13 @@ img {
 }
 
 .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px;
+    max-height: 24px;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .social-link:hover .social-icon {
