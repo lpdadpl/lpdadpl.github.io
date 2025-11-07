@@ -432,14 +432,13 @@ textarea::placeholder {
     }
 
     .site-nav ul {
-        position: fixed;
-        right: 1.25rem;
-        top: 70px;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 12px);
         background: var(--bg-alt);
         border: 1px solid var(--border);
         border-radius: 12px;
-        width: calc(100vw - 2.5rem);
-        max-width: 320px;
+        width: 240px;
         padding: 0.75rem;
         display: grid;
         gap: 0.5rem;
@@ -451,6 +450,7 @@ textarea::placeholder {
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         z-index: 100;
         pointer-events: none;
+        flex-direction: column;
     }
 
     .site-nav.open ul {
