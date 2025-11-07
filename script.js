@@ -61,4 +61,15 @@ if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
 }
 
-
+function copyEmail() {
+    const email = 'albertodepablolopez@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        const feedback = document.getElementById('email-feedback');
+        feedback.style.display = 'inline';
+        setTimeout(() => {
+            feedback.style.display = 'none';
+        }, 2000);
+    }).catch(err => {
+        console.error('Error al copiar:', err);
+    });
+}
