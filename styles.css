@@ -432,13 +432,14 @@ textarea::placeholder {
     }
 
     .site-nav ul {
-        position: absolute;
-        right: 0;
-        top: calc(100% + 12px);
+        position: fixed;
+        right: 1.25rem;
+        top: 70px;
         background: var(--bg-alt);
         border: 1px solid var(--border);
         border-radius: 12px;
-        width: 240px;
+        width: calc(100vw - 2.5rem);
+        max-width: 320px;
         padding: 0.75rem;
         display: grid;
         gap: 0.5rem;
@@ -449,12 +450,14 @@ textarea::placeholder {
         transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         z-index: 100;
+        pointer-events: none;
     }
 
     .site-nav.open ul {
         max-height: 400px;
         opacity: 1;
         transform: translateY(0) scale(1);
+        pointer-events: auto;
     }
 
     .site-nav ul li {
