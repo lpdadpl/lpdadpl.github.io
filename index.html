@@ -1,492 +1,261 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio - Resume | Alberto de Pablo</title>
-        <meta
-            name="description"
-            content="Portfolio personal con proyectos, habilidades y contacto."
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <style>
-            /* Fondo uniforme para todo el sitio */
-             :root {
-                 --bg: #0b1220; /* color de fondo principal (ajustable) */
-                 --text: #e6eef8;
-                 --muted: #9aa7bf;
-                 --accent: #7cc3ff;
-             }
- 
-             html, body {
-                 height: 100%;
-                 margin: 0;
-                 padding: 0;
-                 background-color: var(--bg);
-                 background-image: none !important;
-                 color: var(--text);
-                 font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-                 -webkit-font-smoothing: antialiased;
-                 -moz-osx-font-smoothing: grayscale;
-                 -webkit-text-size-adjust: 100%;
-             }
- 
-             /* Forzar transparencia / ausencia de cortes en secciones */
-             .section,
-             .section-alt,
-             .site-header,
-             .site-footer,
-             .banner-section,
-             .container {
-                background: transparent !important;
-             }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto de Pablo | Full Stack Developer & Systems Specialist</title>
+    <meta name="description" content="Portfolio profesional de Alberto de Pablo, especializado en desarrollo web (Laravel, Java, Angular) y administración de sistemas (VMware, AWS).">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="bg-glow"></div>
+    
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="logo">A.<span>de Pablo</span></a>
+            <nav class="site-nav" id="siteNav">
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <span class="hamburger"></span>
+                </button>
+                <ul id="primaryMenu">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            /* Ajustes para que el diseño use todo el ancho en escritorio */
-            .container {
-                width: 100%;
-                max-width: none !important;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-                box-sizing: border-box;
-                margin: 0 auto;
-            }
-            @media (min-width: 1200px) {
-                /* en pantallas grandes ampliar el padding lateral para aire */
-                .container { padding-left: 3rem; padding-right: 3rem; }
-            }
- 
-             /* Estilos generales y accesibilidad */
-             a { color: var(--accent); text-decoration: underline; }
-             a:focus, button:focus { outline: 3px solid rgba(124,195,255,0.25); outline-offset: 2px; }
- 
-             /* Iconos y cuadrícula del stack */
-             .section-icon { font-size: 1.2rem; margin-right: 0.5rem; vertical-align:middle; color:var(--accent); }
-             .tech-grid { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; align-items:center; }
-             .tech-grid a img { height:48px; width:auto; display:block; filter: none; }
-             .section-title { display:flex; align-items:center; gap:0.5rem; justify-content:center; color:var(--text); }
- 
-            /* Centrado y ajuste para sección Proyectos (aún usa todo el ancho) */
-             #projects .container{
-                 width: 100%;
-                 max-width: none;
-                 margin: 0 auto;
-                 display: flex;
-                 flex-direction: column;
-                 align-items: center;
-                 justify-content: center;
-                 gap: 1rem;
-                 padding: 1rem;
-                 text-align: center;
-             }
-             #projects .hero-emoji{ font-size: 5rem; margin-bottom: 0.5rem; }
-             #projects .lead{ font-size: 1.15rem; margin: 0; color:var(--muted); }
-             #projects .project-card{
-                 width: 100%;
-                 display: flex;
-                 flex-direction: column;
-                 gap: 0.75rem;
-                 align-items: center;
-                 color:var(--text);
-             }
-             #projects .project-card h3{ margin: 0.25rem 0; }
-             #projects .project-stats img{ max-width: 340px; width:100%; height:auto; display:block; margin: 0 auto; }
-             .centered { margin: 0 auto; }
-             @media (min-width: 720px){
-                 #projects .project-card{ align-items: flex-start; text-align: left; }
-                 #projects .container{ text-align: left; }
-                 #projects .project-card .centered{ margin: 0 auto; }
-             }
- 
-             /* avatar */
-             .avatar {
-                 width: 96px;
-                 height: 96px;
-                 border-radius: 50%;
-                 background: rgba(255,255,255,0.04);
-                 display: flex;
-                 align-items: center;
-                 justify-content: center;
-                 font-weight: 700;
-                 color: var(--text);
-                 overflow: hidden;
-             }
-             .avatar-img {
-                 width: 100%;
-                 height: 100%;
-                 object-fit: cover;
-                 display: block;
-             }
-         </style>
-    </head>
-    <body>
-        <header class="site-header">
+    <main>
+        <section id="hero" class="hero">
             <div class="container">
-                <!-- <a href="#" class="logo">Lorem<span>Ipsum</span></a> -->
-                <nav class="site-nav" id="siteNav" aria-label="Principal">
-                    <button
-                        class="nav-toggle"
-                        id="navToggle"
-                        aria-expanded="false"
-                        aria-controls="primaryMenu"
-                        aria-label="Abrir menú"
-                    >
-                        <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="nav-icon-line nav-icon-line-top" d="M3 6h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                            <path class="nav-icon-line nav-icon-line-middle" d="M3 12h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                            <path class="nav-icon-line nav-icon-line-bottom" d="M3 18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                    <ul id="primaryMenu">
-                        <li><a href="#hero">Inicio</a></li>
-                        <li><a href="#about">Sobre mí</a></li>
-                        <li><a href="#projects">Proyectos</a></li>
-                        <li><a href="#skills">Habilidades</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                    </ul>
-                </nav>
+                <div class="hero-content reveal">
+                    <div class="badge">Disponible para nuevos proyectos</div>
+                    <h1 class="hero-title">
+                        Construyendo <span class="text-gradient">experiencias digitales</span> con propósito.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Soy Alberto de Pablo López, un profesional IT con visión integral. Fusiono el desarrollo Full Stack en entornos <strong>Laravel</strong> y <strong>Java/Angular</strong> con una sólida especialización en <strong>sistemas, redes y cloud</strong>, ofreciendo soluciones técnicas 360 de alto impacto.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="#contact" class="btn btn-outline">Contactar</a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://linkedin.com/in/albertodpablo/" target="_blank" class="social-icon-link">
+                            <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" alt="LinkedIn">
+                        </a>
+                        <a href="https://github.com/lpdadpl" target="_blank" class="social-icon-link">
+                            <img src="https://skillicons.dev/icons?i=github&theme=dark" alt="GitHub">
+                        </a>
+                    </div>
+                </div>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <!-- Banner agregado -->
-            <section class="banner-section" aria-hidden="true">
-                <div class="container">
-                    <img src="/Header.png" alt="Banner" style="width:100%;height:auto;display:block;margin:0 auto 1rem" />
-                </div>
-            </section>
-
-            <section id="hero" class="hero">
-                <div class="container grid-2">
-                    <div class="hero-text">
-                        <h1>
-                            Hola, soy Alberto de Pablo López
-                            <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" alt="wave" style="vertical-align:middle;margin-left:0.5rem" />
-                        </h1>
-                        <p>
-                            Apasionado profesional con formación en desarrollo web y dietética.
-                            Tengo experiencia en atención al cliente y gestión de proyectos,
-                            y destaque por mi adaptabilidad, trabajo en equipo y rapidez de aprendizaje.
-                            Domino tecnologías web (Laravel, Vue.js, TypeScript) y bases de datos,
-                            y puedo diseñar y mantener aplicaciones que priorizan usabilidad y seguridad.
-                            Busco integrarme en entornos colaborativos donde aportar una visión práctica
-                            y orientada a resultados.
-                        </p>
-                            <!-- Social / enlaces rápidos -->
-                        <p style="margin-top:1rem; display:flex; align-items:center; gap:0.5rem;">
-                            <a href="https://www.linkedin.com/in/albertodpablo/" target="_blank" aria-label="LinkedIn">
-                                <img src="https://skillicons.dev/icons?i=linkedin&theme=dark" alt="LinkedIn" style="height:32px; vertical-align:middle;" />
-                            </a>
-                            <a href="https://github.com/lpdadpl" target="_blank" aria-label="GitHub">
-                                <img src="https://skillicons.dev/icons?i=github&theme=dark" alt="GitHub" style="height:32px; vertical-align:middle;" />
-                            </a>
-                        </p>
-
-                    </div>
-                    <!-- <div class="hero-media">
-                        <div class="avatar" aria-hidden="true">
-                            <img src="/pfp.jpg" alt="Alberto de Pablo" class="avatar-img" />
-                        </div>
-                    </div> -->
-                </div>
-            </section>
-
-            <section id="education" class="section section-alt">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>🎓</span> Educación</h2>
-
-                    <p style="margin-bottom:0.6rem; color:var(--muted)">
-                        Formación técnica y práctica orientada al desarrollo de aplicaciones web y al trabajo en entornos profesionales.
+        <section id="about" class="section section-alt">
+            <div class="container">
+                <div class="about-text reveal centered">
+                    <h2 class="section-tag">Sobre mí</h2>
+                    <h3 class="section-title">Pasión por el código y las infraestructuras.</h3>
+                    <p style="max-width: 800px; margin-inline: auto;">
+                        Mi perfil profesional se centra en la creación de soluciones digitales completas y eficientes. Domino stacks modernos como <strong>Laravel</strong> y <strong>Java + Angular</strong>, permitiéndome abordar proyectos complejos desde el backend hasta el frontend con precisión técnica.
                     </p>
-
-                    <ul>
-                        <li>
-                            <strong>GFPS DAW Dual</strong> - IES Pio Baroja (2023 - 2025)<br />
-                            Programa en modalidad dual combinando formación en el centro y prácticas en empresa. Módulos destacados:
-                            Desarrollo web (HTML, CSS, JavaScript/TypeScript), programación en servidor (PHP, Laravel), bases de datos (MySQL, PostgreSQL), sistemas y DevOps básicos (Docker, despliegue), y buenas prácticas de seguridad y accesibilidad.
-                        </li>
-                        <li style="margin-top:.5rem">
-                            <strong>GFPS Dietética</strong> - Escuela Profesional Javeriana (2023)<br />
-                            Formación complementaria en nutrición y control de calidad alimentaria; aporta enfoque analítico y gestión documental útil en proyectos de software relacionados con datos de salud y procesos.
-                        </li>
-                    </ul>
-
-                </div>
-            </section>
-
-            <!-- Cambia el nombre de la sección y tarjetas horizontales -->
-            <section id="experience-cards" class="section section-alt">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>💼</span> Experiencia</h2>
-                    <div class="cards-horizontal">
-                        <article class="card-horizontal">
-                            <div class="card-body-horizontal">
-                                <h3>Becario desarrollo web - JHK T-Shirt SL</h3>
-                                <p>
-                                    Septiembre 2024 a Enero 2025<br />
-                                    Desarrollo y mantenimiento de aplicaciones
-                                    web utilizando tecnologías Laravel y Vue.js,
-                                    implementación eficiente de funcionalidades
-                                    en frontend y backend, gestión de datos
-                                    provenientes de bases de datos para
-                                    generación de PDFs dinámicos, y optimización
-                                    de consultas para asegurar la calidad y el
-                                    rendimiento del proyecto.
-                                </p>
-                            </div>
-                        </article>
-                        <article class="card-horizontal">
-                            <div class="card-body-horizontal">
-                                <h3>
-                                    Peón en taller de serigrafía - Total Shirt
-                                    SL
-                                </h3>
-                                <p>
-                                    Junio 2024 a Agosto 2024<br />
-                                    Carga y descarga de materiales y camisetas,
-                                    organización eficiente del stock en
-                                    estanterías, y control de producción para
-                                    asegurar que las camisetas serigrafiadas
-                                    cumplan con los estándares de calidad.
-                                </p>
-                            </div>
-                        </article>
-                        <article class="card-horizontal">
-                            <div class="card-body-horizontal">
-                                <h3>
-                                    Camarero - New Line | Promotion & Events
-                                </h3>
-                                <p>
-                                    Septiembre 2023 a Mayo 2024<br />
-                                    Atención al cliente, rápido servicio para un
-                                    flujo de clientela eficaz y gestión del
-                                    cobro.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Nueva sección de proyectos ampliada (centrada) -->
-            <section id="projects" class="section">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>📁</span> Proyectos</h2>
-
-                    <div class="projects-inner" style="width:100%">
-                        <!-- <div class="hero-emoji" aria-hidden="true">🚧</div>
-                        <p class="lead">Estamos trabajando en ello</p> -->
-
-                        <!-- Proyecto destacado -->
-                        <div class="project-card" role="region" aria-labelledby="archivesphere-title">
-                            <h3 id="archivesphere-title">
-                                <a href="https://github.com/lpdadpl/Archivesphere.git" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;">
-                                    ArchiveSphere
-                                </a>
-                           </h3>
-                             <p>
-                                 Web para gestión de archivos y automatización de
-                                 backups. Tecnologías principales: <strong>Laravel</strong>, <strong>Vue.js</strong> y <strong>TypeScript</strong>.
-                             </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="skills" class="section">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>🛠️</span> Habilidades Técnicas</h2>
-
-                    <!-- Iconos de skills: cuadrícula con enlaces -->
-                    <div class="tech-grid" aria-hidden="false" aria-label="Tecnologías">
-                        <a href="#" title="HTML">
-                            <img src="https://skillicons.dev/icons?i=html&theme=light" alt="HTML" />
-                        </a>
-                        <a href="#" title="CSS">
-                            <img src="https://skillicons.dev/icons?i=css&theme=light" alt="CSS" />
-                        </a>
-                        <a href="#" title="TypeScript">
-                            <img src="https://skillicons.dev/icons?i=ts&theme=light" alt="TypeScript" />
-                        </a>
-                        <a href="#" title="Vue.js">
-                            <img src="https://skillicons.dev/icons?i=vue&theme=light" alt="Vue" />
-                        </a>
-                        <a href="#" title="Angular">
-                            <img src="https://skillicons.dev/icons?i=angular&theme=light" alt="Angular" />
-                        </a>
-                        <a href="#" title="PHP">
-                            <img src="https://skillicons.dev/icons?i=php&theme=light" alt="PHP" />
-                        </a>
-                        <a href="#" title="Laravel">
-                            <img src="https://skillicons.dev/icons?i=laravel&theme=light" alt="Laravel" />
-                        </a>
-                        <a href="#" title="Node.js">
-                            <img src="https://skillicons.dev/icons?i=nodejs&theme=light" alt="Node.js" />
-                        </a>
-                        <a href="#" title="MySQL">
-                            <img src="https://skillicons.dev/icons?i=mysql&theme=light" alt="MySQL" />
-                        </a>
-                        <a href="#" title="Postgres">
-                            <img src="https://skillicons.dev/icons?i=postgres&theme=light" alt="Postgres" />
-                        </a>
-                        <a href="#" title="Docker">
-                            <img src="https://skillicons.dev/icons?i=docker&theme=light" alt="Docker" />
-                        </a>
-                        <a href="#" title="AWS">
-                            <img src="https://skillicons.dev/icons?i=aws&theme=light" alt="AWS" />
-                        </a>
-                        <a href="#" title="Git">
-                            <img src="https://skillicons.dev/icons?i=git&theme=light" alt="Git" />
-                        </a>
-                        <a href="#" title="GitHub">
-                            <img src="https://skillicons.dev/icons?i=github&theme=light" alt="GitHub" />
-                        </a>
-                    </div>
-
-                    <h3>Aprendizaje</h3>
-                    <p>Actualmente profundizando en: <strong>AWS</strong>, <strong>Cloud-native Software Engineering</strong> y <strong>Angular</strong>.</p>
-                </div>
-            </section>
-
-            <!-- <section id="experience" class="section">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>🧾</span> Experiencia profesional</h2>
-                    <ul>
-                        <li>
-                            <strong>Becario desarrollo web</strong> - JHK
-                            T-Shirt SL (Septiembre 2024 a Enero 2025)
-                        </li>
-                        <li>
-                            <strong>Peón en taller de serigrafía</strong> -
-                            Total Shirt SL (Junio 2024 a Agosto 2024)
-                        </li>
-                        <li>
-                            <strong>Camarero</strong> - New Line | Promotion &
-                            Events (Septiembre 2023 a Mayo 2024)
-                        </li>
-                        <li>
-                            <strong>Asistente de ventas online</strong> - El
-                            Corte Inglés (Noviembre 2022 a Diciembre 2022)
-                        </li>
-                    </ul>
-                </div>
-            </section> -->
-
-            <!-- <section id="contact" class="section section-alt">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>✉️</span> Contacto</h2>
-                    <p>
-                        Getafe, España · 684108419 ·
-                        <a href="mailto:albertodepablolopez@gmail.com"
-                            >albertodepablolopez@gmail.com</a
-                        ><br />
-                        <a
-                            href="https://www.linkedin.com/in/albertodpablo"
-                            target="_blank"
-                            >www.linkedin.com/in/albertodpablo</a
-                        >
+                    <p style="max-width: 800px; margin-inline: auto;">
+                        Más allá del desarrollo, poseo una sólida formación en <strong>Redes y Sistemas</strong>, con experiencia en entornos virtualizados con <strong>VMware</strong> y despliegues en <strong>Amazon Web Services (AWS)</strong>. Mi enfoque combina la agilidad del desarrollo con la robustez de una infraestructura bien gestionada.
                     </p>
-                    <form id="contactForm" class="contact-form" novalidate>
-                        <div class="form-row">
-                            <label for="name">Nombre</label>
-                            <input
-                                id="name"
-                                name="name"
-                                type="text"
-                                placeholder="Tu nombre"
-                                required
-                            />
-                        </div>
-                        <div class="form-row">
-                            <label for="email">Email</label>
-                            <input
-                                id="email"
-                                name="email"
-                                type="email"
-                                placeholder="tucorreo@ejemplo.com"
-                                required
-                            />
-                        </div>
-                        <div class="form-row">
-                            <label for="message">Mensaje</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                placeholder="Escribe tu mensaje"
-                                required
-                            ></textarea>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">
-                                Enviar
-                            </button>
-                            <p
-                                id="formStatus"
-                                role="status"
-                                aria-live="polite"
-                            ></p>
-                        </div>
-                    </form>
                 </div>
-            </section> -->
+            </div>
+        </section>
 
-            <section id="contact" class="section section-alt">
-                <div class="container">
-                    <h2 class="section-title"><span class="section-icon" aria-hidden>✉️</span> Contacto</h2>
-                    <!-- <p style="margin-bottom: 2rem; color: var(--muted);"> -->
-                    <p style="margin-bottom: 2rem; color: white;">
-                        ¿Quieres ponerte en contacto conmigo? Puedes encontrarme en:
-                    </p>
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-tag centered">Experiencia</h2>
+                <h3 class="section-title centered">Mi trayectoria profesional</h3>
+                
+                <div class="timeline">
+                    <!-- 
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Nov 2025 - Actualidad</span>
+                            <h4>Gestor de Mercancía</h4>
+                            <h5>El Corte Inglés</h5>
+                            <p>Gestión logística y control de stock mediante tecnología <strong>SAP</strong>, asegurando la eficiencia operativa. Previamente desempeñé funciones de asistente de tienda con enfoque en atención al cliente y soporte operativo.</p>
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Jun 2025 - Nov 2025</span>
+                            <h4>Técnico de Instalación</h4>
+                            <h5>SUMDIT RPC</h5>
+                            <p>Instalación, configuración y programación de sistemas TPV y entornos integrados de red para puntos de venta.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Sep 2024 - Jun 2025</span>
+                            <h4>Becario Desarrollo Web</h4>
+                            <h5>JHK T-Shirt SL</h5>
+                            <p>Desarrollo Full Stack (Laravel) centrado en la optimización de procesos y gestión dinámica de datos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section section-alt">
+            <div class="container">
+                <h2 class="section-tag centered">Educación</h2>
+                <h3 class="section-title centered">Formación Académica</h3>
+                
+                <div class="education-grid">
+                    <div class="edu-card reveal">
+                        <div class="edu-icon">🎓</div>
+                        <div class="edu-info">
+                            <span class="edu-date">2023 - 2025</span>
+                            <h4>GFPS DAW Dual</h4>
+                            <p>IES Pio Baroja</p>
+                            <span class="edu-detail">Especializado en Full Stack: Laravel, Java y Angular. Formación avanzada en bases de datos y despliegue continuo.</span>
+                        </div>
+                    </div>
                     
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/albertodpablo/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
-                                <path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z" fill="currentColor"/>
-                            </svg>
-                            <span class="social-text">LinkedIn</span>
-                        </a>
-                        
-                        <a href="https://github.com/lpdadpl" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
-                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" fill="currentColor"/>
-                            </svg>
-                            <span class="social-text">GitHub</span>
-                        </a>
-                        <button onclick="copyEmail()" class="social-link" aria-label="Email">
-                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                            </svg>
-                            <span class="social-text">Email</span>
-                            <span id="email-feedback" style="display: none; margin-left: 8px; font-size: 0.9em; color: #10b981;">¡Copiado!</span>
-                        </button>
-                        <!-- <a href="mailto:albertodepablolopez@gmail.com" class="social-link" aria-label="Email">
-                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                            </svg>
-                            <span class="social-text">Email</span>
-                        </a> -->
+                    <div class="edu-card reveal">
+                        <div class="edu-icon">🌐</div>
+                        <div class="edu-info">
+                            <span class="edu-date">2024 - Presente</span>
+                            <h4>Sistemas, Redes y Cloud</h4>
+                            <p>Formación Especializada</p>
+                            <span class="edu-detail">Profundización en administración de redes, virtualización con VMware y arquitecturas escalables en AWS.</span>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="container">
-                <p>
-                    © <span id="year"></span> Alberto de Pablo. Todos los derechos
-                    reservados.
-                </p>
             </div>
-        </footer>
+        </section>
 
-        <script src="script.js"></script>
-    </body>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-tag centered">Proyectos</h2>
+                <h3 class="section-title centered">Trabajos destacados</h3>
+                
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <div class="project-info">
+                            <h4>ArchiveSphere</h4>
+                            <p>Plataforma para la gestión de archivos y automatización de backups diseñada para alta eficiencia.</p>
+                            <div class="project-tags">
+                                <span>Laravel</span>
+                                <span>TypeScript</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <a href="https://github.com/lpdadpl/Archivesphere.git" target="_blank" class="project-link">Explorar Código</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card reveal">
+                        <div class="project-info">
+                            <h4>SpendWise</h4>
+                            <p>Aplicación de gestión financiera personal para el control de gastos y presupuestos en tiempo real.</p>
+                            <div class="project-tags">
+                                <span>Java</span>
+                                <span>Angular</span>
+                                <span>Tailwind CSS</span>
+                            </div>
+                            <a href="https://github.com/lpdadpl/spendwise" target="_blank" class="project-link">Explorar Código</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal wip-card">
+                        <div class="project-info">
+                            <div class="wip-icon">🚀</div>
+                            <h4>Más proyectos en desarrollo</h4>
+                            <p>Actualmente trabajando en nuevas soluciones de infraestructura y aplicaciones web. ¡Vuelve pronto!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section section-alt">
+            <div class="container">
+                <h2 class="section-tag centered">Habilidades</h2>
+                <h3 class="section-title centered">Stack Tecnológico</h3>
+                
+                <div class="tech-grid reveal">
+                    <div class="tech-item" title="Java"><img src="https://skillicons.dev/icons?i=java" alt="Java"></div>
+                    <div class="tech-item" title="Angular"><img src="https://skillicons.dev/icons?i=angular" alt="Angular"></div>
+                    <div class="tech-item" title="PHP"><img src="https://skillicons.dev/icons?i=php" alt="PHP"></div>
+                    <div class="tech-item" title="Laravel"><img src="https://skillicons.dev/icons?i=laravel" alt="Laravel"></div>
+                    <div class="tech-item" title="Tailwind CSS"><img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind"></div>
+                    <div class="tech-item" title="TypeScript"><img src="https://skillicons.dev/icons?i=ts" alt="TypeScript"></div>
+                    <div class="tech-item" title="AWS"><img src="https://skillicons.dev/icons?i=aws" alt="AWS"></div>
+                    <div class="tech-item" title="Docker"><img src="https://skillicons.dev/icons?i=docker" alt="Docker"></div>
+                    <div class="tech-item" title="MySQL"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL"></div>
+                    <div class="tech-item" title="PostgreSQL"><img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL"></div>
+                    <div class="tech-item" title="Linux"><img src="https://skillicons.dev/icons?i=linux" alt="Linux"></div>
+                    <div class="tech-item" title="Git"><img src="https://skillicons.dev/icons?i=git" alt="Git"></div>
+                    <div class="tech-item" title="GitHub"><img src="https://skillicons.dev/icons?i=github" alt="GitHub"></div>
+                </div>
+                
+                <div class="learning-status reveal">
+                    <p>🎯 Preparando certificaciones oficiales:</p>
+                    <ul style="list-style: none; margin-top: 1rem; padding: 0;">
+                        <li><strong>SOA-C03</strong> - AWS Certified CloudOps Engineer - Associate</li>
+                        <li><strong>VMware 2V0-21.23</strong> (vSphere 8.x Professional)</li>
+                        <li><strong>VMware 2V0-41.24</strong> (NSX 4.x Professional)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-box reveal">
+                    <h2 class="section-tag centered">Contacto</h2>
+                    <h3 class="section-title centered">¿Hablamos?</h3>
+                    <p class="centered">Estoy abierto a nuevas oportunidades y colaboraciones. ¡Hablemos de tu próximo gran proyecto!</p>
+                    
+                    <div class="contact-methods">
+                        <a href="https://linkedin.com/in/albertodpablo/" target="_blank" class="contact-item">
+                            <span class="icon">🔗</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/lpdadpl" target="_blank" class="contact-item">
+                            <span class="icon">💻</span>
+                            <span>GitHub</span>
+                        </a>
+                        <button onclick="copyEmail()" class="contact-item" id="copyEmailBtn">
+                            <span class="icon">📧</span>
+                            <span id="emailText">Email</span>
+                            <span id="email-feedback" class="feedback">¡Copiado!</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Alberto de Pablo. Hecho con pasión y código.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>

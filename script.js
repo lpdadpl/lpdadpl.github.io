@@ -1,75 +1,84 @@
-// Alterna el menú móvil al hacer clic en el botón de navegación
-const navToggleButton = document.getElementById('navToggle');
-const siteNav = document.getElementById('siteNav');
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Current Year ---
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-if (navToggleButton && siteNav) {
-    // Escucha el clic en el botón para abrir/cerrar el menú
-    navToggleButton.addEventListener('click', () => {
-        const isOpen = siteNav.classList.toggle('open');
-        // Actualiza el atributo aria-expanded para accesibilidad
-        navToggleButton.setAttribute('aria-expanded', String(isOpen));
+    // --- Mobile Nav Toggle ---
+    const navToggle = document.getElementById('navToggle');
+    const siteNav = document.getElementById('siteNav');
+
+    if (navToggle && siteNav) {
+        navToggle.addEventListener('click', () => {
+            siteNav.classList.toggle('open');
+            const isOpen = siteNav.classList.contains('open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
+    // --- Header Scroll Effect ---
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
-}
 
-// Desplazamiento suave para enlaces internos (fallback para navegadores sin scroll suave por CSS)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href') || '';
-        const target = document.querySelector(targetId);
-        if (target) {
-            // Previene el comportamiento por defecto y realiza scroll suave
+    // --- Scroll Reveal Animation ---
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // --- Smooth Scroll for Anchor Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        // Cierra el menú móvil si está abierto después de hacer clic en un enlace
-        if (siteNav && siteNav.classList.contains('open')) {
-            siteNav.classList.remove('open');
-            navToggleButton?.setAttribute('aria-expanded', 'false');
-        }
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                // Close mobile menu if open
+                siteNav.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
 
-// Manejador del formulario de contacto (solo demostración)
-const contactForm = document.getElementById('contactForm');
-const formStatus = document.getElementById('formStatus');
-
-if (contactForm) {
-    // Escucha el envío del formulario
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        // Valida los campos requeridos
-        if (!contactForm.checkValidity()) {
-            formStatus && (formStatus.textContent = 'Por favor completa los campos requeridos.');
-            formStatus && formStatus.classList.remove('status-success');
-            formStatus && formStatus.classList.add('status-error');
-            return;
-        }
-        // Muestra mensaje de envío y simula retardo
-        formStatus && (formStatus.textContent = 'Enviando...');
-        formStatus && formStatus.classList.remove('status-error');
-        formStatus && formStatus.classList.add('status-success');
-        await new Promise(r => setTimeout(r, 900));
-        // Muestra mensaje de éxito y reinicia el formulario
-        formStatus && (formStatus.textContent = '¡Gracias! Tu mensaje ha sido enviado.');
-        contactForm.reset();
-    });
-}
-
-// Actualiza el año en el pie de página automáticamente
-const yearEl = document.getElementById('year');
-if (yearEl) {
-    yearEl.textContent = String(new Date().getFullYear());
-}
-
+// --- Copy Email to Clipboard ---
 function copyEmail() {
     const email = 'albertodepablolopez@gmail.com';
+    const feedback = document.getElementById('email-feedback');
+    const btn = document.getElementById('copyEmailBtn');
+
     navigator.clipboard.writeText(email).then(() => {
-        const feedback = document.getElementById('email-feedback');
-        feedback.style.display = 'inline';
+        feedback.classList.add('show');
         setTimeout(() => {
-            feedback.style.display = 'none';
+            feedback.classList.remove('show');
         }, 2000);
     }).catch(err => {
-        console.error('Error al copiar:', err);
+        console.error('Error al copiar el email:', err);
+        // Fallback or alert if needed
     });
 }
