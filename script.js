@@ -1,84 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Current Year ---
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    const header = document.getElementById('siteHeader');
+    const nav = document.getElementById('siteNav');
+    const toggle = document.getElementById('navToggle');
+    const year = document.getElementById('year');
 
-    // --- Mobile Nav Toggle ---
-    const navToggle = document.getElementById('navToggle');
-    const siteNav = document.getElementById('siteNav');
+    if (year) year.textContent = new Date().getFullYear();
 
-    if (navToggle && siteNav) {
-        navToggle.addEventListener('click', () => {
-            siteNav.classList.toggle('open');
-            const isOpen = siteNav.classList.contains('open');
-            navToggle.setAttribute('aria-expanded', isOpen);
-        });
+    const closeMenu = () => {
+        nav?.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    };
+
+    toggle?.addEventListener('click', () => {
+        const open = !nav?.classList.contains('open');
+        nav?.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+    window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 12), { passive: true });
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach((element) => element.classList.add('active'));
+        return;
     }
 
-    // --- Header Scroll Effect ---
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // --- Scroll Reveal Animation ---
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.15
-    });
+    }, { threshold: 0.12 });
 
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // --- Smooth Scroll for Anchor Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const target = document.querySelector(targetId);
-            if (target) {
-                // Close mobile menu if open
-                siteNav.classList.remove('open');
-                navToggle.setAttribute('aria-expanded', 'false');
-
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 });
-
-// --- Copy Email to Clipboard ---
-function copyEmail() {
-    const email = 'albertodepablolopez@gmail.com';
-    const feedback = document.getElementById('email-feedback');
-    const btn = document.getElementById('copyEmailBtn');
-
-    navigator.clipboard.writeText(email).then(() => {
-        feedback.classList.add('show');
-        setTimeout(() => {
-            feedback.classList.remove('show');
-        }, 2000);
-    }).catch(err => {
-        console.error('Error al copiar el email:', err);
-        // Fallback or alert if needed
-    });
-}
