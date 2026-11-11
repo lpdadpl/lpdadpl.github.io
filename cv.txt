@@ -1,0 +1,68 @@
+Alberto de Pablo López
+albertodepablolopez@gmail.com | 684108419
+Desarrollador web | Estudiante master ciberseguridad
+
+Experiencia
+Asistente de tienda - El Corte Ingles
+Noviembre 2025 a Noviembre 2026
+Ejecución de tareas de visual merchandising y mantenimiento estético del centro mediante la reposición continua y el frenteado de lineales. Gestión de la distribución de mercancía, Organización estratégica del producto en sala para mejorar la experiencia de compra del cliente.
+Tecnico programas de hosteleria - Sumdit RPC
+Septiembre 2025 a Noviembre 2025
+Instalación, configuración y programación de sistemas TPV, pantallas táctiles y cajones inteligentes conectados en red, creando entornos integrados y funcionales para la gestión de puntos de venta.
+Becario desarrollo web - JHK T-Shirt SL
+Septiembre 2024 a Agosto 2025
+Desarrollo y mantenimiento de aplicaciones web utilizando tecnologías Laravel y Vue.js, implementación eficiente de funcionalidades en frontend y backend, gestión de datos provenientes de bases de datos para generación de PDFs dinámicos, y optimización de consultas para asegurar la calidad y el rendimiento del proyecto.
+Peón en taller de serigrafia- Total Shirt SL
+Junio 2024 a Agosto 2024
+Carga y descarga de materiales y camisetas, organización eficiente del stock en estanterías, y control de producción para asegurar que las camisetas serigrafiadas cumplan con los estándares de calida
+
+Educación
+GFPS DAW Dual- IES Pio Baroja 2023 -2025
+Capacitado para diseñar, desarrollar y mantener aplicaciones web dinámicas, asegurando funcionalidad, usabilidad y seguridad. Dominio de lenguajes de programación, bases de datos y tecnologías web
+GFPS Dietetica- Escuela Javeriana 2021 -2023
+Formación técnica integral en nutrición, evaluación dietética, control de calidad alimentaria y educación para la salud.
+
+Proyectos Personales
+Red Personal Casera/ Homelab: Lo que comenzo como un ordenador antiguo en el salon de casa para poder desplegar mis propios proyectos y hacer pruebas ha pasado a ser mi hub de datos personales y aplicaciones ampliado a una red privada virtual completa.
+Archivesphere: Proyecto TFG. Plataforma profesional para organizar y proteger información. Incluye gestión de archivos, permisos por roles, registro mediante invitación y administración centralizada.
+Spendwise: Proyecto pagina web control de ingresos y gastos con previsiones, plantillas compartidas, autenticación JWT y visualización interactiva de datos financieros.
+Watermark: Aplicación bilingüe para añadir marcas de agua de finalidad a PDF. El documento se procesa íntegramente en el navegador y nunca abandona el dispositivo.
+
+Habilidades
+Programacion (HTML5, CSS3, PHP, Laravel, Java, Angular)
+Administracion Bases de datos
+Control de versiones (Git)
+Linux
+Docker
+Maquetacion
+Administracion de Redes
+Paquete office
+Creacion y manejo de agentes de IA
+
+Fortalezas
+Trabajo en equipo.
+
+Creatividad.
+
+Adaptabilidad.
+
+Critico.
+
+Atención personalizada al cliente
+
+Cursos
+Certificado Cisco Certified Support Technician Cybersecurity
+
+Curso Virtualizacion de red con VmWare
+
+Curso de desarrollo de soluciones en la nube de AWS
+
+Curso Ingeniería De Software Nativo Para La Nube
+
+
+Voluntariados
+Voluntario Campaña Navidades Reyes Magos APANID 2022- 2026: Recogida, preparacion y distribucion de regalos a los usuarios de los centros
+
+Idiomas
+Español: Nativo
+Ingles: Alto
