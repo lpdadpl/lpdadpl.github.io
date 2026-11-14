@@ -21,6 +21,8 @@
             animation: pulse 4s infinite ease-in-out;
         }
     </style>
+<style>.back-to-hub{position:fixed;bottom:18px;left:18px;z-index:1000;background:#c5ed9c;color:#172117;border:1px solid #243427;border-radius:6px;padding:9px 15px;font:600 12px system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 12px #0003}.back-to-hub:focus-visible{outline:3px solid #172117;outline-offset:3px}</style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body class="bg-neutral-950 text-white">
 
@@ -33,11 +35,11 @@
             </a>
             
             <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="index.html#about" class="text-zinc-400 hover:text-white transition-colors">Sobre mí</a>
-                <a href="index.html#experience" class="text-zinc-400 hover:text-white transition-colors">Experiencia</a>
-                <a href="index.html#projects" class="text-zinc-400 hover:text-white transition-colors">Proyectos</a>
-                <a href="index.html#skills" class="text-zinc-400 hover:text-white transition-colors">Habilidades</a>
-                <a href="index.html#contact" class="text-zinc-400 hover:text-white transition-colors">Contacto</a>
+                <a href="CV/index.html#about" class="text-zinc-400 hover:text-white transition-colors">Sobre mí</a>
+                <a href="CV/index.html#experience" class="text-zinc-400 hover:text-white transition-colors">Experiencia</a>
+                <a href="CV/index.html#projects" class="text-zinc-400 hover:text-white transition-colors">Proyectos</a>
+                <a href="CV/index.html#skills" class="text-zinc-400 hover:text-white transition-colors">Habilidades</a>
+                <a href="CV/index.html#contact" class="text-zinc-400 hover:text-white transition-colors">Contacto</a>
             </div>
             
             <button onclick="window.location.href='index.html'" 
@@ -244,5 +246,6 @@
             mermaid.run();
         });
     </script>
+<a class="back-to-hub" href="index.html">← Volver al hub</a>
 </body>
 </html>
